@@ -2,17 +2,26 @@ spring:
   application:
         name: eureka-consumer
   rabbitmq:
-    addresses: amqp://192.168.36.129:5672
+    addresses: amqp://192.168.36.129:5772
     username:  user
     password: 123456
 
+
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: greetings
+        producer:
+          partitionKeyExpression: payload
+          partitionCount: 2
 server:
   port: 8183
 
 eureka:
   client:
    serviceUrl:
-    defaultZone:  http://eureka-server:8181/eureka/
+    defaultZone:  http://localhost:8181/eureka/
   instance:
     instance-id: ${spring.application.name}:${random.int}
 
