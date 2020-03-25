@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 /**
  * @author Administrator
  */
-@EnableCircuitBreaker
+//@EnableCircuitBreaker
 @EnableDiscoveryClient
 @SpringBootApplication
 public class EurekaConsumerApplication {
